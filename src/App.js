@@ -9,6 +9,7 @@ import Historical from './pages/Historical'
 import NoPage from './pages/NoPage'
 import About from './pages/About'
 import Trip from './pages/Trip'
+import TripPlan from './pages/TripPlan'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path ='/lakes' element={<Lakes/>}/>
           <Route path ='/historical-sites' element={<Historical/>}/>
           <Route path ='/plan-your-trip' element={<Trip/>}/>
+          <Route path ='/trip-plan' element={<TripPlan/>}/>
           <Route path ='/about' element={<About/>}/>
           <Route path = "*" element={<NoPage/>}/>
         </Routes>
