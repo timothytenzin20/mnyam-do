@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 @keyframes flipIn {
   0% {
     transform: rotateX(-90deg);
