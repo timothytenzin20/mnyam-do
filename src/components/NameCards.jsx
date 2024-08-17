@@ -1,118 +1,153 @@
-import React from 'react'
-import img1 from '../assets/pfp.png'
+import React, { useState, useRef, useEffect } from 'react';
+import img1 from '../assets/pfp.png';
+import img2 from '../assets/pfp.png';
+import img3 from '../assets/pfp.png';
+import img4 from '../assets/pfp.png';
 
 function NameCards() {
+  const [expandedCard, setExpandedCard] = useState(null);
+  const [contentHeight, setContentHeight] = useState({});
+  const contentRef = useRef({});
+
+  const handleToggle = (card) => {
+    setExpandedCard(expandedCard === card ? null : card);
+  };
+
+  useEffect(() => {
+    // Update content height for each card
+    const newContentHeight = {};
+    Object.keys(contentRef.current).forEach((key) => {
+      newContentHeight[key] = contentRef.current[key].scrollHeight;
+    });
+    setContentHeight(newContentHeight);
+  }, []);
+
   return (
-    <div>
-
-<div class="flex flex-wrap justify-center mt-10">
-
-<div className="p-4 max-w-lg mx-auto">
+    <div className="flex flex-wrap justify-center mt-10 gap-6">
+      {/* Card 1 */}
+      <div className="p-4 max-w-lg">
         <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
           {/* Outer Circle */}
-          <div className="absolute top-[-6rem] flex items-center justify-center w-full">
+          <div className="absolute top-[-3rem] flex justify-center w-full">
             <div className="w-40 h-40 rounded-full bg-indigo-500 flex items-center justify-center">
               {/* Inner Circle with Image */}
               <img src={img1} alt="Timothy Tenzin Khan picture" className="w-36 h-36 rounded-full object-cover" />
             </div>
           </div>
           {/* Main Content */}
-          <div className="pt-20 flex flex-col justify-between flex-grow p-8 mt-12">
+          <div className="pt-20 flex flex-col justify-between flex-grow mt-16 p-8">
             <h2 className="text-black text-lg font-medium text-center">Timothy Tenzin Khan</h2>
-            <p className="leading-relaxed text-base text-black text-center">
+            <div
+              ref={(el) => (contentRef.current[1] = el)}
+              className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
+              style={{ height: expandedCard === 1 ? `${contentHeight[1]}px` : '5rem' }}
+            >
               Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
-            </p>
-            <a href="#" className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
-              Learn More
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+
+              </div>
+            <button onClick={() => handleToggle(1)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
+              {expandedCard === 1 ? 'Show Less' : 'Read More'}
+              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
 
-
-<div class="p-4 max-w-lg">
-    <div class="flex rounded-lg h-full dark:bg-gray-800 bg-teal-400 p-8 flex-col">
-        <div class="flex items-center mb-3">
-            <div
-                class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+      {/* Card 2 */}
+      <div className="p-4 max-w-lg">
+        <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
+          {/* Outer Circle */}
+          <div className="absolute top-[-3rem] flex justify-center w-full">
+            <div className="w-40 h-40 rounded-full bg-flag-red flex items-center justify-center">
+              {/* Inner Circle with Image */}
+              <img src={img2} alt="Tenzin Choeden Nepali picture" className="w-36 h-36 rounded-full object-cover" />
             </div>
-            <h2 class="text-white dark:text-white text-lg font-medium">Tenzin Choeden Nepali</h2>
-        </div>
-        <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-white dark:text-gray-300">
-                Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-            </p>
-            <a href="#" class="mt-3 text-black dark:text-white hover:text-blue-600 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="p-4 max-w-lg">
-    <div class="flex rounded-lg h-full dark:bg-gray-800 bg-teal-400 p-8 flex-col">
-        <div class="flex items-center mb-3">
+          </div>
+          {/* Main Content */}
+          <div className="pt-20 flex flex-col justify-between flex-grow mt-16 p-8">
+            <h2 className="text-black text-lg font-medium text-center">Tenzin Choeden Nepali</h2>
             <div
-                class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-            </div>
-            <h2 class="text-white dark:text-white text-lg font-medium">Tenzin Rigsang</h2>
+              ref={(el) => (contentRef.current[2] = el)}
+              className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
+              style={{ height: expandedCard === 2 ? `${contentHeight[2]}px` : '5rem' }}
+            >
+              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+              </div>
+            <button onClick={() => handleToggle(2)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
+              {expandedCard === 2 ? 'Show Less' : 'Read More'}
+              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-white dark:text-gray-300">
-                Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-            </p>
-            <a href="#" class="mt-3 text-black dark:text-white hover:text-blue-600 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
+      </div>
 
-<div class="p-4 max-w-lg">
-    <div class="flex rounded-lg h-full dark:bg-gray-800 bg-teal-400 p-8 flex-col">
-        <div class="flex items-center mb-3">
+      {/* Card 3 */}
+      <div className="p-4 max-w-lg">
+        <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
+          {/* Outer Circle */}
+          <div className="absolute top-[-3rem] flex justify-center w-full">
+            <div className="w-40 h-40 rounded-full bg-flag-blue flex items-center justify-center">
+              {/* Inner Circle with Image */}
+              <img src={img3} alt="Tenzin Rigsang picture" className="w-36 h-36 rounded-full object-cover" />
+            </div>
+          </div>
+          {/* Main Content */}
+          <div className="pt-20 flex flex-col justify-between flex-grow mt-16 p-8">
+            <h2 className="text-black text-lg font-medium text-center">Tenzin Rigsang</h2>
             <div
-                class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+              ref={(el) => (contentRef.current[3] = el)}
+              className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
+              style={{ height: expandedCard === 3 ? `${contentHeight[3]}px` : '5rem' }}
+            >
+              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
             </div>
-            <h2 class="text-white dark:text-white text-lg font-medium">Tenzin zzzzzzz</h2>
+            <button onClick={() => handleToggle(3)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
+              {expandedCard === 3 ? 'Show Less' : 'Read More'}
+              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-white dark:text-gray-300">
-            Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-            </p>
-            <button onclick="myFunction()" id="myBtn">Read more</button>
+      </div>
 
+      {/* Card 4 */}
+      <div className="p-4 max-w-lg">
+        <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
+          {/* Outer Circle */}
+          <div className="absolute top-[-3rem] flex justify-center w-full">
+            <div className="w-40 h-40 rounded-full bg-box-gray flex items-center justify-center">
+              {/* Inner Circle with Image */}
+              <img src={img4} alt="Tenzin Tsephel picture" className="w-36 h-36 rounded-full object-cover" />
+            </div>
+          </div>
+          {/* Main Content */}
+          <div className="pt-20 flex flex-col justify-between flex-grow mt-16 p-8">
+            <h2 className="text-black text-lg font-medium text-center">Tenzin Tsephel</h2>
+            <div
+              ref={(el) => (contentRef.current[4] = el)}
+              className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
+              style={{ height: expandedCard === 4 ? `${contentHeight[4]}px` : '5rem' }}
+            >
+              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+            </div>
+            <button onClick={() => handleToggle(4)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
+              {expandedCard === 4 ? 'Show Less' : 'Read More'}
+              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-
-</div>
-
-
-    </div>
-  )
+  );
 }
 
-export default NameCards
+export default NameCards;
