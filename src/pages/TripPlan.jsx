@@ -8,7 +8,7 @@ function TripPlan() {
   return (
     <div>
       <AppBar />
-      <div className="flex flex-col items-center justify-center min-h-screen rounded-full bg-box-gray ">
+      <div className="flex flex-col items-center justify-center min-h-screen rounded-full bg-box-gray">
         <Typography variant="h6" component="h2" align="center" mb={2}>
           Please be patient, trip plan loading!
         </Typography>
