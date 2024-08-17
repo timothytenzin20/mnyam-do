@@ -7,6 +7,8 @@ import Temples from './pages/Temples'
 import Lakes from './pages/Lakes'
 import Historical from './pages/Historical'
 import NoPage from './pages/NoPage'
+import About from './pages/About'
+import Trip from './pages/Trip'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path ='/temples' element={<Temples/>}/>
           <Route path ='/lakes' element={<Lakes/>}/>
           <Route path ='/historical-sites' element={<Historical/>}/>
+          <Route path ='/plan-your-trip' element={<Trip/>}/>
+          <Route path ='/about' element={<About/>}/>
           <Route path = "*" element={<NoPage/>}/>
         </Routes>
       </BrowserRouter>
