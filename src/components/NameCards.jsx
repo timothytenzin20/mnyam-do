@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import img1 from '../assets/pfp.png';
-import img2 from '../assets/pfp.png';
-import img3 from '../assets/pfp.png';
-import img4 from '../assets/pfp.png';
+import img2 from '../assets/img2.jpg';
+import img3 from '../assets/img3.png';
+import img4 from '../assets/img4.png';
 
 function NameCards() {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -29,7 +29,7 @@ function NameCards() {
         <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
           {/* Outer Circle */}
           <div className="absolute top-[-3rem] flex justify-center w-full">
-            <div className="w-40 h-40 rounded-full bg-indigo-500 flex items-center justify-center">
+            <div className="w-40 h-40 rounded-full bg-box-gray flex items-center justify-center">
               {/* Inner Circle with Image */}
               <img src={img1} alt="Timothy Tenzin Khan picture" className="w-36 h-36 rounded-full object-cover" />
             </div>
@@ -42,10 +42,7 @@ function NameCards() {
               className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
               style={{ height: expandedCard === 1 ? `${contentHeight[1]}px` : '5rem' }}
             >
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
-              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-
+              Hello, everyone, Tashi Delek! My name is Timothy Tenzin Khan, and I'm a third-year Computer Engineering student at the University of Guelph. I've consistently pushed myself academically, and I’m eager to channel that same dedication into this, my second hackathon. I enjoy blending my cultural heritage with my passion for programming, which gives my projects a distinct and personal touch. I hope to continue exploring full-stack projects and developing myself as a Tibetan programmer, and I’m excited to contribute my skills and explore new ideas in this collaborative setting.
               </div>
             <button onClick={() => handleToggle(1)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
               {expandedCard === 1 ? 'Show Less' : 'Read More'}
@@ -62,7 +59,7 @@ function NameCards() {
         <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
           {/* Outer Circle */}
           <div className="absolute top-[-3rem] flex justify-center w-full">
-            <div className="w-40 h-40 rounded-full bg-flag-red flex items-center justify-center">
+            <div className="w-40 h-40 rounded-full bg-box-gray flex items-center justify-center">
               {/* Inner Circle with Image */}
               <img src={img2} alt="Tenzin Choeden Nepali picture" className="w-36 h-36 rounded-full object-cover" />
             </div>
@@ -75,7 +72,7 @@ function NameCards() {
               className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
               style={{ height: expandedCard === 2 ? `${contentHeight[2]}px` : '5rem' }}
             >
-              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+              Hello, my name is Tenzin Choeden and I am currently a rising senior inside of highschool. Throughout highschool I have constantly challenged myself by taking hard classes and I will continue this spirit throughout the Hackathon as I work my hardest. Although this is my first hackathon, I have worked with other Tibetan organizations before. Currently I am a Rokpa scholar and a board member at my local RTYC chapter.
               </div>
             <button onClick={() => handleToggle(2)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
               {expandedCard === 2 ? 'Show Less' : 'Read More'}
@@ -92,7 +89,7 @@ function NameCards() {
         <div className="relative flex flex-col items-center rounded-lg w-full bg-box-gray">
           {/* Outer Circle */}
           <div className="absolute top-[-3rem] flex justify-center w-full">
-            <div className="w-40 h-40 rounded-full bg-flag-blue flex items-center justify-center">
+            <div className="w-40 h-40 rounded-full bg-box-gray flex items-center justify-center">
               {/* Inner Circle with Image */}
               <img src={img3} alt="Tenzin Rigsang picture" className="w-36 h-36 rounded-full object-cover" />
             </div>
@@ -105,7 +102,7 @@ function NameCards() {
               className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
               style={{ height: expandedCard === 3 ? `${contentHeight[3]}px` : '5rem' }}
             >
-              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+              Tashi Delek! My name is Tenzin Rigsang. I graduated with a degree in Finance from Baruch College and have experience working in a corporate finance advisory firm. I'm new to the world of technology and this is my first Hackathon. My main goal is to embark on this journey as an adventure, work on an exciting project, and learn from and connect with other Tibetans in the tech space. In my spare time, I actively volunteer with Students for a Free Tibet (SFT).
             </div>
             <button onClick={() => handleToggle(3)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
               {expandedCard === 3 ? 'Show Less' : 'Read More'}
@@ -135,7 +132,7 @@ function NameCards() {
               className={`leading-relaxed text-base text-black text-center overflow-hidden transition-all duration-500 ease-in-out`}
               style={{ height: expandedCard === 4 ? `${contentHeight[4]}px` : '5rem' }}
             >
-              Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
+              Tashi Delek everyone, my name is Tenzin Tsephel, and I’m currently a second-year Data Science student at BMCC. This is my first Hackathon, and the opportunity to collaborate with fellow Tibetans has made it an inspiring and supportive experience. I’ve dabbled in C++ and am proficient in Canva and Tableau. I’m passionate about problem-solving and making data-driven decisions that create impact, and I hope to use my knowledge and skills to help further the Tibetan community. Beyond the numbers, I’m a lifelong learner, always exploring new challenges and opportunities for growth.
             </div>
             <button onClick={() => handleToggle(4)} className="mt-3 text-black hover:text-blue-600 inline-flex items-center mx-auto">
               {expandedCard === 4 ? 'Show Less' : 'Read More'}
