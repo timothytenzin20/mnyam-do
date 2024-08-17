@@ -8,6 +8,8 @@ module.exports = {
       colors: {
         'flag-blue': '#142A91',
         'box-gray': '#f1f5f9',
+        'flag-red': '#730d20',
+        'flag-yellow': '#bc9547',
       },
     },
   },
