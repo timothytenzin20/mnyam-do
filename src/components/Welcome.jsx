@@ -3,9 +3,11 @@ import AppBar from '../components/AppBar';
 import { Typography } from '@mui/material';
 import '../App.css';
 import thumbnail1 from '../assets/thumbnail1.png';
+import thumbnail2 from '../assets/potala.jpg';
 import GradientFillButton from '../components/GradientFillButton';
 import Footer from '../components/Footer';
-
+import Stupas from '../assets/stupas.jpg'
+import Lakes from '../assets/lakes.jpg'
 
 function Welcome() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -65,7 +67,7 @@ function Welcome() {
           {/* category 1 */}
           <div key="category1" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
             <div className="relative flex flex-col items-center rounded-lg w-80 h-90 bg-box-gray shadow-2xl">
-              <img src={thumbnail1} alt="Museum picture" className="w-80 h-80 rounded-lg object-cover" />
+              <img src={thumbnail2} alt="Museum picture" className="w-80 h-80 rounded-lg object-cover" />
               <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
                 <h2 className="text-black text-lg font-medium text-center">Historical Sites</h2>
                 <div>
@@ -97,13 +99,13 @@ function Welcome() {
           {/* category 3 */}
           <div key="category3" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
             <div className="relative flex flex-col items-center rounded-lg w-80 h-90 bg-box-gray shadow-2xl">
-              <img src={thumbnail1} alt="Museum picture" className="w-80 h-80 rounded-lg object-cover" />
+              <img src={Lakes} alt="Lake picture" className="w-80 h-80 rounded-lg object-cover" />
               <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
-                <h2 className="text-black text-lg font-medium text-center">Museums</h2>
+                <h2 className="text-black text-lg font-medium text-center">Lakes</h2>
                 <div>
-                  <p>Famous Tibetan/Himalayan museums across the world</p>
+                  <p>Famous Tibetan/Himalayan lakes across the world</p>
                   <div className='p-3'>
-                    <GradientFillButton href="/museums" />
+                    <GradientFillButton href="/lakes" />
                   </div>
                 </div>
               </div>
@@ -113,13 +115,13 @@ function Welcome() {
           {/* category 4 */}
           <div key="category4" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
             <div className="relative flex flex-col items-center rounded-lg w-80 h-90 bg-box-gray shadow-2xl">
-              <img src={thumbnail1} alt="Lake picture" className="w-80 h-80 rounded-lg object-cover" />
+              <img src={Stupas} alt="Stupa picture" className="w-80 h-80 rounded-lg object-cover" />
               <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
-                <h2 className="text-black text-lg font-medium text-center">Lakes</h2>
+                <h2 className="text-black text-lg font-medium text-center">Stupas</h2>
                 <div>
-                  <p>Famous Tibetan/Himalayan lakes across the world</p>
+                  <p>Famous Tibetan/Himalayan Stupas across the world</p>
                   <div className='p-3'>
-                    <GradientFillButton href="/lakes" />
+                    <GradientFillButton href="/stupas" />
                   </div>
                 </div>
               </div>
