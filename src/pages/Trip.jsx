@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Museums() {
+function Trip() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Museums() {
   )
 }
 
-export default Museums
+export default Trip
