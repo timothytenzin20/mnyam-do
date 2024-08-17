@@ -2,49 +2,102 @@ import React, { useState, useEffect } from 'react';
 import AppBar from '../components/AppBar';
 import { Typography } from '@mui/material';
 import '../App.css'; // Import your CSS file
+import thumbnail1 from '../assets/thumbnail1.png';
 
 function Welcome() {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [animationClass, setAnimationClass] = useState('flipping-in');
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsFlipped(true);
-    }, 3000); // Delay before flipping
+    const interval = setInterval(() => {
+      setAnimationClass('flipping-out');
+      setTimeout(() => {
+        setIsFlipped(prev => !prev);
+        setAnimationClass('flipping-in');
+      }, 1000); // Time matches the flipOut animation duration
+    }, 5500); // Duration before the next flip
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div>
       <AppBar />
-      <div className='mt-4 ml-4 mr-4 mb-4 rounded-md pb-5 p-10 bg-flag-blue'>
-        <div className={`flip-container ${isFlipped ? 'flipped' : ''}`}>
-          <div className={`flip-content ${isFlipped ? 'flip-out' : 'flip-in'}`}>
+      <div className='mt-5 ml-7 mr-7 mb-5 rounded-md pb-5 p-1 bg-flag-blue'>
+        <div className='flip-container'>
+          <div className={`flip-content ${animationClass}`}>
             {!isFlipped ? (
               <Typography
-                variant='h2'
+                variant='h1'
                 component='div'
-                sx={{ color: 'white', fontFamily: 'Raleway' }}
+                sx={{ color: 'white', fontFamily: 'Raleway', my: 3 }}
               >
                 Tashi Delek
               </Typography>
             ) : (
               <Typography
-                variant='h2'
+                variant='h1'
                 component='div'
-                sx={{ color: 'white', fontFamily: 'Raleway' }}
+                sx={{ color: 'white', fontFamily: 'Raleway', my: 3 }}
               >
                 བཀྲ་ཤིས་བདེ་ལེགས།
               </Typography>
             )}
           </div>
         </div>
-        <Typography variant='h6' component='div' sx={{ color: '#730d20', fontStyle: 'oblique' }}>
-          Welcome To Nyamd Do
+        <Typography variant='h6' component='div' sx={{ color: '#bc9547', fontStyle: 'oblique' }}>
+          Welcome To Nyam Do
           <Typography variant='h9' component='div' sx={{ color: 'white', fontStyle: 'normal' }}>
             Select a theme to learn more!
           </Typography>
         </Typography>
+      </div>
+      <div className='mt-4 ml-4 mr-4 mb-4 rounded-md'>
+        <div className="flex flex-wrap justify-center gap-5">
+          {/* category 1 */}
+          <div key="category1" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
+            <div className="relative flex flex-col items-center rounded-lg w-80 h-80 bg-box-gray shadow-2xl">
+              <img src={thumbnail1} alt="Museum picture" className="w-80 h-80 rounded-lg object-cover" />
+              <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
+                <h2 className="text-black text-lg font-medium text-center">Historical Sites</h2>
+                <div>Famous Tibetan/Himalayan historical sites across the world</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* category 2 */}
+          <div key="category2" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
+            <div className="relative flex flex-col items-center rounded-lg w-80 h-80 bg-box-gray shadow-2xl">
+              <img src={thumbnail1} alt="Temple Khan picture" className="w-80 h-80 rounded-lg object-cover" />
+              <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
+                <h2 className="text-black text-lg font-medium text-center">Temples</h2>
+                <div>Famous Tibetan/Himalayan Temples across the world</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* category 3 */}
+          <div key="category3" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
+            <div className="relative flex flex-col items-center rounded-lg w-80 h-80 bg-box-gray shadow-2xl">
+              <img src={thumbnail1} alt="Museum picture" className="w-80 h-80 rounded-lg object-cover" />
+              <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
+                <h2 className="text-black text-lg font-medium text-center">Museums</h2>
+                <div>Famous Tibetan/Himalayan Museums across the world</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* category 4 */}
+          <div key="category4" className="max-w-lg" style={{ minWidth: '20rem', minHeight: '20rem' }}>
+            <div className="relative flex flex-col items-center rounded-lg w-80 h-80 bg-box-gray shadow-2xl">
+              <img src={thumbnail1} alt="Lake picture" className="w-80 h-80 rounded-lg object-cover" />
+              <div className="pt-20 flex flex-col justify-between flex-grow -mt-16 p-8">
+                <h2 className="text-black text-lg font-medium text-center">Lakes</h2>
+                <div>Famous Tibetan/Himalayan lakes across the world</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,77 +1,44 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* @keyframes flipIn {
-  from {
+@keyframes flipIn {
+  0% {
     transform: rotateX(-90deg);
     opacity: 0;
   }
-  to {
+  100% {
     transform: rotateX(0);
     opacity: 1;
   }
 }
 
 @keyframes flipOut {
-  from {
+  0% {
     transform: rotateX(0);
     opacity: 1;
   }
-  to {
+  100% {
     transform: rotateX(90deg);
     opacity: 0;
   }
 }
 
-.flip-in {
-  animation: flipIn 1s forwards;
-}
-
-.flip-out {
-  animation: flipOut 1s forwards;
-}
-
 .flip-container {
   perspective: 1000px;
+  position: relative;
+  height: 100%;
 }
 
 .flip-content {
-  transition: transform 1s;
   transform-style: preserve-3d;
-} */
+  backface-visibility: hidden;
+  transition: transform 1s, opacity 1s;
+}
+
+.flip-content.flipping-out {
+  animation: flipOut 1s forwards;
+}
+
+.flip-content.flipping-in {
+  animation: flipIn 1s forwards;
+}
